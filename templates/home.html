@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        {#This is a variable#}
+        {{ book.book_title }}
+    </p>
+
+    {#There are both tags and filters in here#}
+    {% if book_author %}
+
+        <p>
+            These are the available books we have in our book store
+        </p>
+        
+        <table>
+            <tr>
+                <th>Book Title</th>
+                <th>Book Author</th>
+                <th>Year Published</th>
+            </tr>
+            {% for book in all_books %}
+                <tr>
+                    <td>{{ book.book_title }}  </td>
+                    <td>{{ book.book_author }}</td>
+                    <td>{{ book.year_published }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        
+        
+        {% for author in all_books %}
+            <p>{{ author.book_author }}</p>
+            <p> {{ author.year_published }} </p>
+            <p> {{ author.book_title}} </p>
+            {{ author.book_author | title }}
+        {% endfor %}
+        <p>
+            Lorem ipsum dolor sit amet consectetur 
+            adipisicing elit. Corporis rem est esse officiis 
+            debitis nesciunt nam perferendis quo explicabo 
+            delectus.
+        </p>
+        
+        {#these are comments#}
+    {% endif %}
+</body>
+</html>
